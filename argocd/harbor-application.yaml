@@ -12,7 +12,7 @@ spec:
     targetRevision: 1.14.0
     helm:
       valueFiles:
-        - ../../helm-values/harbor-values.yaml
+        - helm-values/harbor-values.yaml
 
   destination:
     server: https://kubernetes.default.svc
