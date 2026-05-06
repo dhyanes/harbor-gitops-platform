@@ -11,8 +11,14 @@ spec:
     chart: harbor
     targetRevision: 1.14.0
     helm:
-      valueFiles:
-        - helm-values/harbor-values.yaml
+      values: |
+        expose:
+          type: ingress
+          ingress:
+            hosts:
+              core: harbor.local
+            className: nginx
+        externalURL: http://harbor.local
 
   destination:
     server: https://kubernetes.default.svc
