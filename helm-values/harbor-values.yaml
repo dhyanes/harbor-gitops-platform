@@ -1,0 +1,14 @@
+expose:
+  type: ingress
+  ingress:
+    hosts:
+      core: harbor.local
+    className: nginx
+
+externalURL: http://harbor.local
+
+persistence:
+  enabled: true
+
+trivy:
+  enabled: true
