@@ -1,14 +1,10 @@
 expose:
   type: ingress
   ingress:
+    className: nginx
     hosts:
       core: harbor.local
-    className: nginx
-
-externalURL: http://harbor.local
-
-persistence:
-  enabled: true
-
-trivy:
-  enabled: true
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  tls:
+    enabled: false
