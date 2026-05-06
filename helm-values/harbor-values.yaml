@@ -6,5 +6,6 @@ expose:
       core: harbor.local
     annotations:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
+
   tls:
     enabled: false
