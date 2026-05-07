@@ -1,0 +1,12 @@
+expose:
+  type: ingress
+
+  tls:
+    enabled: false
+
+  ingress:
+    className: nginx
+    hosts:
+      core: harbor.local
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
