@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: harbor
   namespace: argocd
+
 spec:
   project: default
 
@@ -10,15 +11,23 @@ spec:
     repoURL: https://helm.goharbor.io
     chart: harbor
     targetRevision: 1.14.0
+
     helm:
       values: |
         expose:
           type: ingress
+          tls:
+            enabled: false
+
           ingress:
+            className: nginx
             hosts:
               core: harbor.local
-            className: nginx
-        externalURL: http://harbor.local
+
+            annotations:
+              nginx.ingress.kubernetes.io/ssl-redirect: "false"
+
+        externalURL: http://harbor.local:32318
 
   destination:
     server: https://kubernetes.default.svc
@@ -28,5 +37,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
     syncOptions:
       - CreateNamespace=true
