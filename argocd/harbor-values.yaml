@@ -7,11 +7,14 @@ expose:
   ingress:
     className: nginx
 
-    hosts:
-      core: harbor.local
-
     annotations:
+      ingress.kubernetes.io/ssl-redirect: "false"
+      ingress.kubernetes.io/proxy-body-size: "0"
+
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
       nginx.ingress.kubernetes.io/proxy-body-size: "0"
+
+    hosts:
+      core: harbor.local
 
 externalURL: http://harbor.local:32318
