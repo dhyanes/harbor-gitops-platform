@@ -4,9 +4,12 @@ metadata:
   name: harbor-ingress
   namespace: harbor
   annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
+
 spec:
   ingressClassName: nginx
+
   rules:
   - host: harbor.local
     http:
